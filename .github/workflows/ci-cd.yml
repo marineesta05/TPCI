@@ -10,7 +10,6 @@ env:
   IMAGE_FRONTEND: ghcr.io/${{ github.repository_owner }}/tpci-frontend
 
 jobs:
-  # ── 1. Tests ────────────────────────────────────────────────
   test:
     name: Tests
     runs-on: ubuntu-latest
@@ -32,7 +31,6 @@ jobs:
         working-directory: backend
         run: npm test
 
-  # ── 2. Build & Push Docker ──────────────────────────────────
   build:
     name: Build & Push
     runs-on: ubuntu-latest
@@ -66,7 +64,6 @@ jobs:
           build-args: |
             REACT_APP_BACKEND_URL=http://${{ secrets.VM_HOST }}:3001
 
-  # ── 3. Déploiement sur VM ───────────────────────────────────
   deploy:
     name: Deploy
     runs-on: ubuntu-latest

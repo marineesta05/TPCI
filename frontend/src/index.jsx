@@ -9,13 +9,11 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Appel /health
     fetch(`${BACKEND_URL}/health`)
       .then((r) => r.json())
       .then(setHealth)
       .catch(() => setError("Impossible de joindre le backend"));
 
-    // Appel /api/message
     fetch(`${BACKEND_URL}/api/message`)
       .then((r) => r.json())
       .then(setMessage)
@@ -24,7 +22,7 @@ function App() {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>🚀 TPCI — App Full Stack</h1>
+      <h1 style={styles.title}>TP CI-CD Integration — App Full Stack</h1>
 
       <div style={styles.card}>
         <h2>Backend /health</h2>
